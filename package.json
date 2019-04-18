@@ -1,0 +1,18 @@
+{
+  "name": "stream-server",
+  "version": "1.0.0",
+  "description": "Test for server side stream",
+  "main": "index.js",
+  "scripts": {
+
+    "start": "node -r ts-node/register ./src/index.ts"
+  },
+  "author": "Damien Springuel",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^11.13.5",
+    "nodemon": "^1.18.11",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.3"
+  }
+}
