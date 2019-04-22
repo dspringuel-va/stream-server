@@ -10,6 +10,7 @@ app.use(function(req: Request, response: Response, next: NextFunction) {
   next();
 });
 
+// Based on Server sent events: https://html.spec.whatwg.org/multipage/server-sent-events.html
 app.get('/stream', (request: Request, response: Response) => {
   console.log(`Client opened the connection.`);
   response.header("Content-Type", "text/event-stream");
