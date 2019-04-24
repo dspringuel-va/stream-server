@@ -1,7 +1,6 @@
 import express, { NextFunction, Express, Request, Response } from 'express';
 
 const port = 13000;
-
 const app: Express = express();
 
 app.use(function(req: Request, response: Response, next: NextFunction) {
@@ -16,10 +15,13 @@ app.get('/stream', (request: Request, response: Response) => {
   response.header("Content-Type", "text/event-stream");
   response.header("Connection", "keep-alive");
 
+  response.write('event: hello\n');
   response.write('data: Hello World!\n\n');
 
   let i = 1;
   const stream = () => {
+    response.write(`id: ${i}\n`);
+
     if (i > 10) {
       response.write(`event: streamEnd\n`);
       response.write(`data: Stream ended\n\n`);
