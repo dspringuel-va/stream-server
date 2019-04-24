@@ -25,7 +25,10 @@ app.get('/stream', (request: Request, response: Response) => {
     if (i > 10) {
       response.write(`event: streamEnd\n`);
       response.write(`data: Stream ended\n\n`);
+      return;
     }
+
+    console.log(`Sending message ${i}`);
     response.write(`data: Stream ${i}\n\n`)
     i += 1;
     setTimeout(stream, 500);
